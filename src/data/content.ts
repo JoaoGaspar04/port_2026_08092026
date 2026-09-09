@@ -120,14 +120,10 @@ export const SOCIALS: SocialLink[] = [
 
 export const ABOUT: Record<Lang, string[]> = {
   pt: [
-    'Trabalho em infraestrutura de TI, administração de sistemas e redes, cibersegurança e automação de tarefas em ambiente empresarial, com mais de dois anos de experiência.',
-    'A minha experiência inclui Active Directory e Windows Server, firewall e segurança, VPN, monitorização, virtualização e automação com PowerShell e Python. Na Torre Confecções, administrei mais de 80 utilizadores e estações de trabalho e implementei monitorização LibreNMS em mais de 270 dispositivos de rede e 50 equipamentos VoIP.',
-    'Sou Técnico de Gestão de Redes e Sistemas Informáticos e frequentei o CTeSP em Cibersegurança na Escola Superior Politécnica da Guarda. Português é a minha língua nativa e tenho nível B1 de inglês.',
+    'Trabalho em infraestruturas de TI, administração de sistemas/redes, cibersegurança e tarefas Automação num ambiente corporativo, com 2 anos de experiência',
   ],
   en: [
-    'I work in IT infrastructure, systems and network administration, cybersecurity and task automation within a corporate environment, with over two years of experience.',
-    'My experience includes Active Directory and Windows Server, firewall and security, VPN, monitoring, virtualization and automation with PowerShell and Python. At Torre Confecções, I administered more than 80 users and workstations and implemented LibreNMS monitoring across more than 270 network devices and 50 VoIP systems.',
-    'I am a Computer and Network Management Technician and attended the CTeSP in Cybersecurity at the Polytechnic University of Guarda. Portuguese is my native language and I have B1 English proficiency.',
+    'Worked in IT infrastructure, systems/network administration, cybersecurity, and task automation within a corporate environment, with 2 years of experience',
   ],
 };
 
