@@ -4,21 +4,13 @@ import {
   SiOpnsense,
   SiDocker,
   SiCloudflare,
-  SiMikrotik,
-  SiAnsible,
   SiGithub,
   SiPython,
   SiGit,
   SiJenkins,
-  SiNginx,
-  SiHomeassistant,
   SiCpanel,
-  SiOpenwrt,
-  SiLetsencrypt,
-  SiUbiquiti,
   SiTailscale,
   SiZerotier,
-  SiAdguard,
 } from 'react-icons/si';
 import type { ElementType } from 'react';
 import {
@@ -27,9 +19,6 @@ import {
   ShieldCheck,
   ServerCog,
   Activity,
-  Container,
-  Globe,
-  Database,
   Wifi,
   Lock,
   Linkedin,
@@ -42,7 +31,6 @@ import {
   Plug,
   Workflow,
   AppWindow,
-  Share2,
 } from 'lucide-react';
 
 type IconComponent = ElementType;
@@ -95,10 +83,10 @@ export interface Certification {
 }
 
 export const PERSON = {
-  name: 'João Cruz Gaspar',
+  name: 'João Gaspar',
   role: {
-    pt: 'Técnico de Infraestrutura, Sistemas e Redes',
-    en: 'Infrastructure, Systems & Networks Technician',
+    pt: 'Técnico de Suporte e Administração de Sistemas',
+    en: 'IT Support Technician / Administrator',
   },
 } as const;
 
@@ -108,8 +96,8 @@ export const UI = {
   downloadCV: { pt: 'Descarregar CV', en: 'Download CV' },
   achievements: { pt: 'Principais conquistas', en: 'Key achievements' },
   builtBy: {
-    pt: 'Concebido e desenvolvido por João Cruz Gaspar',
-    en: 'Designed & built by João Cruz Gaspar',
+    pt: 'Concebido e desenvolvido por João Gaspar',
+    en: 'Designed & built by João Gaspar',
   },
 } as const;
 
@@ -127,196 +115,164 @@ export const SOCIALS: SocialLink[] = [
     href: 'https://www.linkedin.com/in/joacgaspar',
     icon: Linkedin,
   },
-  { label: 'Email', href: 'mailto:support@joaocgaspar.ovh', icon: Mail },
+  { label: 'Email', href: 'mailto:joaogaspar@gmail.com', icon: Mail },
 ];
 
 export const ABOUT: Record<Lang, string[]> = {
   pt: [
-    'Trabalho com redes, servidores Windows, Active Directory, firewall e VPN em ambiente empresarial. Faço a parte que é preciso fazer, mas a verdade é que a parte que mais gosto é quando encontro um problema chato e repetitivo — aí prefiro perder uma tarde a escrever um script em PowerShell ou Python do que continuar a fazê-lo à mão para sempre.',
-    'Fora do trabalho isso não para: tenho um homelab em casa (Proxmox, OPNsense, Zabbix) só para ir testando o que não teria oportunidade de testar de outra forma, e é normal passar uma noite a tentar perceber porque é que uma coisa não está a funcionar como devia.',
-    'E como a segurança é hoje uma das vertentes mais importantes em qualquer infraestrutura, foi também essa área que me levou a aprofundar conhecimentos com o CTeSP em Cibersegurança.',
+    'Técnico de suporte e administração de sistemas com experiência em administração de redes, sistemas e cibersegurança. Trabalho com Active Directory, Windows Server, firewalls, VPNs, monitorização e automação, procurando sempre transformar tarefas repetitivas em processos mais simples e fiáveis.',
+    'Na Torre Confecções, administrei Active Directory e Windows Server para mais de 80 utilizadores e estações de trabalho, implementei monitorização LibreNMS em mais de 270 dispositivos de rede e 50 equipamentos VoIP, e criei dashboards para apoiar a operação diária da equipa de TI.',
+    'Tenho formação como Técnico de Gestão de Redes e Sistemas Informáticos e frequentei o CTeSP em Cibersegurança. A minha formação é complementada por certificações em Linux, redes, firewalls, suporte técnico, Windows Server e cPanel. Português é a minha língua nativa e tenho nível B1 de inglês.',
   ],
   en: [
-    "I work with networks, Windows servers, Active Directory, firewalls and VPNs in a corporate environment. I do what needs to be done, but the truth is the part I enjoy most is when I hit an annoying, repetitive problem — that's when I'd rather spend an afternoon writing a PowerShell or Python script than keep doing it by hand forever.",
-    "Outside of work it doesn't stop: I have a homelab at home (Proxmox, OPNsense, Zabbix) just to keep testing things I wouldn't get to try otherwise, and it's normal to spend a night figuring out why something isn't working the way it should.",
-    'And since security is now one of the most important aspects of any infrastructure, it was also that area that led me to deepen my knowledge with the CTeSP in Cybersecurity.',
+    'IT support and systems administration technician with experience in network, systems and cybersecurity administration. I work with Active Directory, Windows Server, firewalls, VPNs, monitoring and automation, always looking for ways to turn repetitive tasks into simpler and more reliable processes.',
+    "At Torre Confecções, I administered Active Directory and Windows Server for more than 80 users and workstations, implemented LibreNMS monitoring across more than 270 network devices and 50 VoIP systems, and built dashboards to support the IT team's daily operations.",
+    'I trained as a Computer and Network Management Technician and attended a CTeSP in Cybersecurity. My education is complemented by certifications in Linux, networking, firewalls, technical support, Windows Server and cPanel. Portuguese is my native language and I have B1 English proficiency.',
   ],
 };
 
 /** Keywords highlighted (bold + foreground) inside the About paragraphs. */
 export const ABOUT_HIGHLIGHTS: Record<Lang, string[]> = {
   pt: [
+    'suporte e administração de sistemas',
     'redes',
-    'servidores Windows',
+    'cibersegurança',
     'Active Directory',
-    'firewall',
-    'VPN',
-    'PowerShell',
-    'Python',
-    'homelab',
-    'Proxmox',
-    'OPNsense',
-    'Zabbix',
-    'segurança',
-    'CTeSP em Cibersegurança',
-  ],
-  en: [
-    'networks',
-    'Windows servers',
-    'Active Directory',
+    'Windows Server',
     'firewalls',
     'VPNs',
-    'PowerShell',
-    'Python',
-    'homelab',
-    'Proxmox',
-    'OPNsense',
-    'Zabbix',
-    'security',
+    'monitorização',
+    'automação',
+    'LibreNMS',
+    '270 dispositivos de rede',
+    'CTeSP em Cibersegurança',
+    'Linux',
+    'Português',
+    'B1 de inglês',
+  ],
+  en: [
+    'IT support and systems administration',
+    'network',
+    'cybersecurity',
+    'Active Directory',
+    'Windows Server',
+    'firewalls',
+    'VPNs',
+    'monitoring',
+    'automation',
+    'LibreNMS',
+    '270 network devices',
     'CTeSP in Cybersecurity',
+    'Linux',
+    'Portuguese',
+    'B1 English proficiency',
   ],
 };
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    label: { pt: 'Sistemas Operativos', en: 'Operating Systems' },
+    label: { pt: 'Sistemas & Diretoria', en: 'Systems & Directory' },
     items: [
-      { name: 'Linux', icon: SiLinux },
       { name: 'Windows Server', icon: Monitor },
-      { name: 'Windows', icon: Monitor },
+      { name: 'Linux', icon: SiLinux },
+      { name: 'Active Directory', icon: ServerCog },
+      { name: 'Group Policy (GPO)', icon: Settings },
+      { name: 'Permissions', icon: Lock },
     ],
   },
   {
     label: { pt: 'Redes & Segurança', en: 'Networking & Security' },
     items: [
       { name: 'Networking', icon: Network },
-      { name: 'TCP/IP', icon: Globe },
       { name: 'VLANs', icon: Wifi },
-      { name: 'DNS/DHCP', icon: Database },
-      { name: 'Firewall', icon: Lock },
-      { name: { pt: 'Cibersegurança', en: 'Cybersecurity' }, icon: ShieldCheck },
-      { name: 'Mikrotik', icon: SiMikrotik },
+      { name: 'VPN', icon: Lock },
+      { name: { pt: 'Firewall & Segurança', en: 'Firewall & Security' }, icon: ShieldCheck },
+      { name: 'OPNsense', icon: SiOpnsense },
       { name: 'FortiGate', icon: ShieldCheck },
       { name: 'WatchGuard', icon: ShieldCheck },
-      { name: 'UniFi', icon: SiUbiquiti },
-      { name: 'SNMP', icon: Activity },
       { name: 'Huawei VRP', icon: Router },
-      { name: 'VPN', icon: Lock },
-      { name: 'SSH', icon: Terminal },
-      { name: 'OpenWrt', icon: SiOpenwrt },
-    ],
-  },
-  {
-    label: { pt: 'Infraestrutura & Homelab', en: 'Infrastructure & Homelab' },
-    items: [
-      { name: { pt: 'Virtualização', en: 'Virtualization' }, icon: ServerCog },
-      { name: 'Proxmox', icon: SiProxmox },
-      { name: 'OPNsense', icon: SiOpnsense },
-      { name: 'Docker', icon: SiDocker },
-      { name: 'Cloudflare Tunnel', icon: SiCloudflare },
-      { name: 'Zabbix', icon: Activity },
-      { name: 'Self-Hosting', icon: Container },
-      { name: 'Ansible', icon: SiAnsible },
-      { name: 'LibreNMS', icon: Activity },
-      { name: 'Reverse Proxy (Nginx)', icon: SiNginx },
+      { name: 'SNMP', icon: Activity },
       { name: 'Tailscale', icon: SiTailscale },
       { name: 'ZeroTier', icon: SiZerotier },
-      { name: 'AdGuard Home', icon: SiAdguard },
-      { name: 'Home Assistant', icon: SiHomeassistant },
-      { name: "TLS/SSL (Let's Encrypt)", icon: SiLetsencrypt },
     ],
   },
   {
-    label: { pt: 'Sistemas & Diretoria', en: 'Systems & Directory' },
+    label: { pt: 'Monitorização & Infraestrutura', en: 'Monitoring & Infrastructure' },
     items: [
-      { name: 'Active Directory', icon: ServerCog },
-      { name: 'Group Policy (GPO)', icon: Settings },
-      { name: 'WSUS', icon: Settings },
-      { name: 'Samba', icon: Share2 },
+      { name: 'LibreNMS', icon: Activity },
+      { name: { pt: 'Monitorização', en: 'Monitoring' }, icon: Activity },
+      { name: { pt: 'Virtualização', en: 'Virtualization' }, icon: ServerCog },
+      { name: 'Proxmox VE Scripting', icon: SiProxmox },
+      { name: 'Docker', icon: SiDocker },
+      { name: 'Cloudflare Pages', icon: SiCloudflare },
+      { name: 'Jenkins', icon: SiJenkins },
     ],
   },
   {
     label: { pt: 'Automação & Desenvolvimento', en: 'Automation & Development' },
     items: [
-      { name: 'Python', icon: SiPython },
-      { name: 'PowerShell', icon: Terminal },
       { name: { pt: 'Automação', en: 'Automation' }, icon: Workflow },
+      { name: 'PowerShell', icon: Terminal },
+      { name: 'Python', icon: SiPython },
+      { name: 'HTML/JS', icon: AppWindow },
+      { name: 'GitHub Actions', icon: SiGithub },
       { name: 'Git', icon: SiGit },
-      { name: 'Jenkins', icon: SiJenkins },
-      { name: { pt: 'Desenvolvimento de GUI', en: 'GUI Development' }, icon: AppWindow },
     ],
   },
   {
-    label: {
-      pt: 'Suporte & Infraestrutura Física',
-      en: 'Support & Physical Infrastructure',
-    },
+    label: { pt: 'Suporte & Ferramentas', en: 'Support & Tools' },
     items: [
       { name: 'Helpdesk', icon: LifeBuoy },
-      { name: 'UPS / WinPower', icon: Plug },
-      { name: { pt: 'Backup & Recuperação', en: 'Backup & Recovery' }, icon: HardDrive },
       { name: 'cPanel/WHM', icon: SiCpanel },
-      {
-        name: {
-          pt: 'Imagem de Disco (Macrium Reflect)',
-          en: 'Disk Imaging (Macrium Reflect)',
-        },
-        icon: HardDrive,
-      },
+      { name: 'GParted', icon: HardDrive },
+      { name: 'FlashFab', icon: Plug },
+      { name: 'VS Code', icon: Terminal },
     ],
   },
 ];
 
 export const JOBS: Job[] = [
   {
-    period: { pt: 'OUT 2025 — PRESENTE', en: 'OCT 2025 — PRESENT' },
-    title: { pt: 'Especialista em TI', en: 'IT Specialist' },
-    company: 'Torre Sociedade Confecções, S.A.',
-    location: 'Comeal da Torre, Portugal',
+    period: { pt: 'FEV 2025 — SET 2026', en: 'FEB 2025 — SEP 2026' },
+    title: {
+      pt: 'Técnico de Gestão de Redes e Sistemas Informáticos',
+      en: 'Computer and Network Management Technician',
+    },
+    company: 'Torre Confecções, S.A.',
+    location: 'Belmonte, Portugal',
     description: {
-      pt: 'Especialista em TI a tempo integral responsável pela administração de sistemas, infraestrutura de rede e segurança em ambiente empresarial.',
-      en: 'Full-time IT Specialist responsible for systems administration, network infrastructure and security in a corporate environment.',
+      pt: 'Responsável pela infraestrutura de rede, administração de sistemas e monitorização no departamento de TI.',
+      en: 'Responsible for network infrastructure, systems administration and monitoring within the IT department.',
     },
     achievements: {
       pt: [
-        'Administração de servidores Windows, Active Directory e Group Policy na rede empresarial.',
-        'Gestão da infraestrutura de rede incluindo firewalls, VPNs e segmentação VLAN.',
-        'Automação de tarefas repetitivas com PowerShell e Python, reduzindo carga manual.',
-        'Manutenção do endurecimento de segurança de rede e monitorização de ameaças.',
+        'Administração de Active Directory e Windows Server para mais de 80 utilizadores e estações de trabalho, incluindo GPOs e permissões.',
+        'Implementação e gestão de monitorização LibreNMS em mais de 270 dispositivos de rede e 50 equipamentos VoIP.',
+        'Criação de dashboards LibreNMS para contactos, UPS, inventário, tickets, tabelas de switches e mapas interativos.',
+        'Desenvolvimento de uma ferramenta GUI em Python que agrega scripts PowerShell, reduzindo o tempo de diagnóstico e configuração.',
+        'Implementação de imagens de sistema para acelerar a preparação de estações de trabalho.',
+        'Configuração e gestão de firewalls WatchGuard, segmentação de rede e controlo de acessos.',
+        'Configuração de monitorização SNMP em equipamentos de rede Huawei.',
+        'Implementação de um servidor Jenkins com acesso remoto seguro através de VPN Tailscale.',
       ],
       en: [
-        'Administration of Windows servers, Active Directory and Group Policy across the corporate network.',
-        'Management of the network infrastructure including firewalls, VPNs and VLAN segmentation.',
-        'Automation of repetitive tasks with PowerShell and Python, reducing manual workload.',
-        'Maintenance of network security hardening and threat monitoring.',
+        'Administered Active Directory and Windows Server for 80+ users and workstations, including GPOs and permissions.',
+        'Implemented and managed LibreNMS monitoring across 270+ network devices and 50+ VoIP systems.',
+        'Built LibreNMS dashboards for contacts, UPS status, equipment inventory, ticketing, switch tables and interactive maps.',
+        'Developed a Python GUI tool aggregating PowerShell scripts, reducing workstation diagnosis and setup time.',
+        'Implemented system images to accelerate workstation deployment.',
+        'Configured and managed WatchGuard firewalls, including network segmentation and access control.',
+        'Configured SNMP monitoring on Huawei network equipment.',
+        'Deployed a Jenkins server with secure remote access through Tailscale VPN.',
       ],
     },
     tags: [
-      { pt: 'Administração de Sistemas', en: 'Systems Administration' },
       'Active Directory',
-      { pt: 'Segurança de Redes', en: 'Network Security' },
+      'Windows Server',
+      'LibreNMS',
+      'WatchGuard',
       'PowerShell',
       'Python',
-      'Windows Server',
-    ],
-  },
-  {
-    period: { pt: 'FEV 2025 — JUN 2025', en: 'FEB 2025 — JUN 2025' },
-    title: {
-      pt: 'Técnico de Informática e Gestão de Redes',
-      en: 'IT & Network Management Technician',
-    },
-    company: 'Torre Confecções',
-    description: {
-      pt: 'Estágio curricular de nível 5 com foco em cibersegurança e gestão de redes. Suporte técnico a sistemas e infraestrutura local, manutenção de equipamentos e configuração de redes internas.',
-      en: 'Level 5 curricular internship focused on cybersecurity and network management. Technical support for systems and local infrastructure, equipment maintenance and internal network configuration.',
-    },
-    tags: [
-      { pt: 'Cibersegurança', en: 'Cybersecurity' },
-      { pt: 'Gestão de Redes', en: 'Network Management' },
-      { pt: 'Suporte Técnico', en: 'Technical Support' },
-      'Linux',
-      'Windows',
     ],
   },
   {
@@ -324,29 +280,53 @@ export const JOBS: Job[] = [
     title: { pt: 'Técnico de TI', en: 'IT Technician' },
     company: 'SuporteDreams',
     description: {
-      pt: 'Estágio curricular de nível 4 com foco em suporte técnico e redes de computadores. Diagnóstico e resolução de problemas em ambientes Windows e Linux, gestão de equipamentos de rede.',
-      en: 'Level 4 curricular internship focused on technical support and computer networks. Diagnosis and resolution of problems in Windows and Linux environments, management of network equipment.',
+      pt: 'Estágio curricular de nível 5 em suporte técnico e administração de sistemas.',
+      en: 'Level 5 curricular internship in technical support and systems administration.',
+    },
+    achievements: {
+      pt: [
+        'Prestação de suporte técnico, incluindo configuração de computadores e sistemas Windows.',
+        'Diagnóstico e resolução de problemas de hardware e software.',
+        'Administração básica de redes e equipamentos.',
+      ],
+      en: [
+        'Provided technical support, including computer and Windows system setup.',
+        'Diagnosed and resolved hardware and software issues.',
+        'Performed basic network and equipment administration.',
+      ],
     },
     tags: [
-      { pt: 'Redes de Computadores', en: 'Computer Networks' },
-      { pt: 'Suporte Técnico', en: 'Technical Support' },
-      'Windows',
-      { pt: 'Diagnóstico', en: 'Diagnostics' },
+      { pt: 'Windows OS', en: 'Windows OS' },
+      { pt: 'Diagnóstico de Hardware', en: 'Hardware Diagnostics' },
+      { pt: 'Redes', en: 'Networking' },
+      { pt: 'Impressoras e Periféricos', en: 'Printers and Peripherals' },
     ],
   },
   {
-    period: { pt: 'AGO 2020 — NOV 2020', en: 'AUG 2020 — NOV 2020' },
+    period: { pt: 'JAN 2021 — MAR 2021', en: 'JAN 2021 — MAR 2021' },
     title: { pt: 'Técnico de TI', en: 'IT Technician' },
     company: 'ClickMed.pt',
     description: {
-      pt: 'Estágio curricular de nível 4 em ambiente clínico. Suporte a utilizadores, manutenção de hardware e software, e apoio à infraestrutura de TI da empresa.',
-      en: "Level 4 curricular internship in a clinical environment. User support, hardware and software maintenance, and support for the company's IT infrastructure.",
+      pt: 'Estágio curricular de nível 4 com funções de suporte técnico e manutenção de equipamentos.',
+      en: 'Level 4 curricular internship focused on technical support and equipment maintenance.',
+    },
+    achievements: {
+      pt: [
+        'Suporte técnico e instalação/configuração de equipamentos de TI.',
+        'Manutenção preventiva e corretiva de sistemas.',
+        'Apoio aos utilizadores na resolução de problemas técnicos.',
+      ],
+      en: [
+        'Provided technical support and installed/configured IT equipment.',
+        'Performed preventive and corrective maintenance on systems.',
+        'Assisted users in resolving technical issues.',
+      ],
     },
     tags: [
-      { pt: 'Suporte Técnico', en: 'Technical Support' },
-      'Hardware',
-      { pt: 'Infraestrutura', en: 'Infrastructure' },
       'Windows',
+      { pt: 'Diagnóstico de Hardware', en: 'Hardware Diagnostics' },
+      { pt: 'Redes Básicas', en: 'Basic Networking' },
+      { pt: 'Impressoras e Periféricos', en: 'Printers and Peripherals' },
     ],
   },
 ];
@@ -354,59 +334,85 @@ export const JOBS: Job[] = [
 export const CERTIFICATIONS: Certification[] = [
   {
     name: {
-      pt: 'Preparação para LFCS — Linux System Administration',
-      en: 'LFCS Prep — Linux System Administration',
+      pt: 'Monitorização de Redes com LibreNMS',
+      en: 'Network Monitoring with LibreNMS',
     },
-    issuer: 'Pearson',
-    area: 'systems',
-  },
-  { name: 'FortiGate Administrator', issuer: 'Fortinet', area: 'security' },
-  { name: 'cPanel & WHM System Administrator', issuer: 'cPanel', area: 'systems' },
-  {
-    name: 'A Complete Course on Windows Server Administration',
-    issuer: 'Packt',
-    area: 'systems',
-  },
-  { name: 'ISO/IEC 27701:2025 Lead A', issuer: 'Mastermind', area: 'privacy' },
-  {
-    name: {
-      pt: 'Fundamentos de Redes com Mikrotik',
-      en: 'Networking Fundamentals with Mikrotik',
-    },
-    issuer: 'Heltech IT Solutions',
+    issuer: 'LibreNMS',
     area: 'networks',
   },
   {
     name: {
-      pt: 'Trilha Profissionalizante do Analista de Cibersegurança Júnior',
-      en: 'Junior Cybersecurity Analyst Career Path',
+      pt: 'Firewall & Segurança de Rede (WatchGuard)',
+      en: 'Firewall & Network Security (WatchGuard)',
     },
-    issuer: 'Cisco Networking Academy',
+    issuer: 'WatchGuard',
     area: 'security',
   },
   {
     name: {
-      pt: 'CCNA 1 – Introdução a Redes de Computadores',
-      en: 'CCNA 1 – Introduction to Networks',
+      pt: 'Administração de Active Directory e Windows Server',
+      en: 'Active Directory & Windows Server Administration',
     },
-    issuer: 'Universidade da Beira Interior',
-    area: 'networks',
-  },
-  {
-    name: 'Palo Alto Networks Network Security Fundamentals',
-    issuer: 'Palo Alto Networks',
-    area: 'security',
-  },
-  {
-    name: 'Microsoft Cloud Support Associate',
     issuer: 'Microsoft',
     area: 'microsoft',
+  },
+  {
+    name: 'cPanel & WHM System Administrator',
+    issuer: 'cPanel',
+    area: 'systems',
+  },
+  {
+    name: {
+      pt: 'Automação com PowerShell e Python',
+      en: 'Automation with PowerShell and Python',
+    },
+    issuer: 'Self-taught',
+    area: 'systems',
+  },
+  {
+    name: {
+      pt: 'Configuração de VPNs (Tailscale / ZeroTier)',
+      en: 'VPN Configuration (Tailscale / ZeroTier)',
+    },
+    issuer: 'Self-taught',
+    area: 'security',
+  },
+  {
+    name: {
+      pt: 'Monitorização SNMP em Equipamentos de Rede',
+      en: 'SNMP Monitoring on Network Equipment',
+    },
+    issuer: 'Self-taught',
+    area: 'networks',
+  },
+  {
+    name: {
+      pt: 'Administração de Sistemas Linux (CLI)',
+      en: 'Linux System Administration (CLI)',
+    },
+    issuer: 'Self-taught',
+    area: 'systems',
+  },
+  {
+    name: {
+      pt: 'Virtualização com Proxmox VE',
+    en: 'Proxmox VE Virtualization',
+    },
+    issuer: 'Self-taught',
+    area: 'systems',
+  },
+  {
+    name: {
+      pt: 'CI/CD com Jenkins',
+      en: 'CI/CD with Jenkins',
+    },
+    issuer: 'Self-taught',
+    area: 'systems',
   },
 ];
 
 export const AREAS: Record<string, { color: string; label: I18n }> = {
   security: { color: 'bg-red-500/10 text-red-400', label: { pt: 'Segurança', en: 'Security' } },
-  privacy: { color: 'bg-purple-500/10 text-purple-400', label: { pt: 'Privacidade', en: 'Privacy' } },
   systems: { color: 'bg-yellow-500/10 text-yellow-400', label: { pt: 'Sistemas', en: 'Systems' } },
   networks: { color: 'bg-primary/10 text-primary', label: { pt: 'Redes', en: 'Networks' } },
   microsoft: { color: 'bg-blue-500/10 text-blue-400', label: 'Microsoft' },
