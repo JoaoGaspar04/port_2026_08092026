@@ -85,7 +85,7 @@ export interface Certification {
 export const PERSON = {
   name: 'João Gaspar',
   role: {
-    pt: 'Técnico de Suporte e Administração de Sistemas',
+    pt: 'Técnico de Suporte Informático / Administrador',
     en: 'IT Support Technician / Administrator',
   },
 } as const;
@@ -120,50 +120,50 @@ export const SOCIALS: SocialLink[] = [
 
 export const ABOUT: Record<Lang, string[]> = {
   pt: [
-    'Técnico de suporte e administração de sistemas com experiência em administração de redes, sistemas e cibersegurança. Trabalho com Active Directory, Windows Server, firewalls, VPNs, monitorização e automação, procurando sempre transformar tarefas repetitivas em processos mais simples e fiáveis.',
-    'Na Torre Confecções, administrei Active Directory e Windows Server para mais de 80 utilizadores e estações de trabalho, implementei monitorização LibreNMS em mais de 270 dispositivos de rede e 50 equipamentos VoIP, e criei dashboards para apoiar a operação diária da equipa de TI.',
-    'Tenho formação como Técnico de Gestão de Redes e Sistemas Informáticos e frequentei o CTeSP em Cibersegurança. A minha formação é complementada por certificações em Linux, redes, firewalls, suporte técnico, Windows Server e cPanel. Português é a minha língua nativa e tenho nível B1 de inglês.',
+    'Trabalho em infraestrutura de TI, administração de sistemas e redes, cibersegurança e automação de tarefas em ambiente empresarial, com mais de dois anos de experiência.',
+    'A minha experiência inclui Active Directory e Windows Server, firewall e segurança, VPN, monitorização, virtualização e automação com PowerShell e Python. Na Torre Confecções, administrei mais de 80 utilizadores e estações de trabalho e implementei monitorização LibreNMS em mais de 270 dispositivos de rede e 50 equipamentos VoIP.',
+    'Sou Técnico de Gestão de Redes e Sistemas Informáticos e frequentei o CTeSP em Cibersegurança na Escola Superior Politécnica da Guarda. Português é a minha língua nativa e tenho nível B1 de inglês.',
   ],
   en: [
-    'IT support and systems administration technician with experience in network, systems and cybersecurity administration. I work with Active Directory, Windows Server, firewalls, VPNs, monitoring and automation, always looking for ways to turn repetitive tasks into simpler and more reliable processes.',
-    "At Torre Confecções, I administered Active Directory and Windows Server for more than 80 users and workstations, implemented LibreNMS monitoring across more than 270 network devices and 50 VoIP systems, and built dashboards to support the IT team's daily operations.",
-    'I trained as a Computer and Network Management Technician and attended a CTeSP in Cybersecurity. My education is complemented by certifications in Linux, networking, firewalls, technical support, Windows Server and cPanel. Portuguese is my native language and I have B1 English proficiency.',
+    'I work in IT infrastructure, systems and network administration, cybersecurity and task automation within a corporate environment, with over two years of experience.',
+    'My experience includes Active Directory and Windows Server, firewall and security, VPN, monitoring, virtualization and automation with PowerShell and Python. At Torre Confecções, I administered more than 80 users and workstations and implemented LibreNMS monitoring across more than 270 network devices and 50 VoIP systems.',
+    'I am a Computer and Network Management Technician and attended the CTeSP in Cybersecurity at the Polytechnic University of Guarda. Portuguese is my native language and I have B1 English proficiency.',
   ],
 };
 
 /** Keywords highlighted (bold + foreground) inside the About paragraphs. */
 export const ABOUT_HIGHLIGHTS: Record<Lang, string[]> = {
   pt: [
-    'suporte e administração de sistemas',
-    'redes',
+    'infraestrutura de TI',
+    'administração de sistemas e redes',
     'cibersegurança',
+    'automação de tarefas',
     'Active Directory',
     'Windows Server',
-    'firewalls',
-    'VPNs',
+    'firewall e segurança',
+    'VPN',
     'monitorização',
-    'automação',
+    'virtualização',
     'LibreNMS',
     '270 dispositivos de rede',
     'CTeSP em Cibersegurança',
-    'Linux',
     'Português',
     'B1 de inglês',
   ],
   en: [
-    'IT support and systems administration',
-    'network',
+    'IT infrastructure',
+    'systems and network administration',
     'cybersecurity',
+    'task automation',
     'Active Directory',
     'Windows Server',
-    'firewalls',
-    'VPNs',
+    'firewall and security',
+    'VPN',
     'monitoring',
-    'automation',
+    'virtualization',
     'LibreNMS',
     '270 network devices',
     'CTeSP in Cybersecurity',
-    'Linux',
     'Portuguese',
     'B1 English proficiency',
   ],
@@ -171,59 +171,54 @@ export const ABOUT_HIGHLIGHTS: Record<Lang, string[]> = {
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    label: { pt: 'Sistemas & Diretoria', en: 'Systems & Directory' },
+    label: { pt: 'Competências Principais', en: 'Core Competencies' },
+    items: [
+      { name: 'Active Directory', icon: ServerCog },
+      { name: 'Windows Server', icon: Monitor },
+      { name: { pt: 'Firewall & Segurança', en: 'Firewall & Security' }, icon: ShieldCheck },
+      { name: 'VPN', icon: Lock },
+      { name: { pt: 'Automação', en: 'Automation' }, icon: Workflow },
+      { name: { pt: 'Monitorização', en: 'Monitoring' }, icon: Activity },
+      { name: { pt: 'Cibersegurança', en: 'Cybersecurity' }, icon: ShieldCheck },
+      { name: { pt: 'Virtualização', en: 'Virtualization' }, icon: ServerCog },
+    ],
+  },
+  {
+    label: { pt: 'Sistemas & Servidores', en: 'Systems & Servers' },
     items: [
       { name: 'Windows Server', icon: Monitor },
-      { name: 'Linux', icon: SiLinux },
       { name: 'Active Directory', icon: ServerCog },
-      { name: 'Group Policy (GPO)', icon: Settings },
-      { name: 'Permissions', icon: Lock },
+      { name: 'Linux (Debian, KDE Plasma)', icon: SiLinux },
     ],
   },
   {
     label: { pt: 'Redes & Segurança', en: 'Networking & Security' },
     items: [
-      { name: 'Networking', icon: Network },
+      { name: { pt: 'Redes Empresariais', en: 'Enterprise Networking' }, icon: Network },
       { name: 'VLANs', icon: Wifi },
-      { name: 'VPN', icon: Lock },
-      { name: { pt: 'Firewall & Segurança', en: 'Firewall & Security' }, icon: ShieldCheck },
+      { name: 'DHCP', icon: Router },
+      { name: 'VPN (Tailscale, WireGuard, ZeroTier)', icon: Lock },
       { name: 'OPNsense', icon: SiOpnsense },
       { name: 'FortiGate', icon: ShieldCheck },
       { name: 'WatchGuard', icon: ShieldCheck },
-      { name: 'Huawei VRP', icon: Router },
-      { name: 'SNMP', icon: Activity },
-      { name: 'Tailscale', icon: SiTailscale },
-      { name: 'ZeroTier', icon: SiZerotier },
     ],
   },
   {
-    label: { pt: 'Monitorização & Infraestrutura', en: 'Monitoring & Infrastructure' },
+    label: { pt: 'Monitorização & Virtualização', en: 'Monitoring & Virtualization' },
     items: [
       { name: 'LibreNMS', icon: Activity },
-      { name: { pt: 'Monitorização', en: 'Monitoring' }, icon: Activity },
-      { name: { pt: 'Virtualização', en: 'Virtualization' }, icon: ServerCog },
+      { name: 'SNMP', icon: Activity },
       { name: 'Proxmox VE Scripting', icon: SiProxmox },
-      { name: 'Docker', icon: SiDocker },
-      { name: 'Cloudflare Pages', icon: SiCloudflare },
-      { name: 'Jenkins', icon: SiJenkins },
     ],
   },
   {
-    label: { pt: 'Automação & Desenvolvimento', en: 'Automation & Development' },
+    label: { pt: 'Automação, Web & Ferramentas', en: 'Automation, Web & Tools' },
     items: [
-      { name: { pt: 'Automação', en: 'Automation' }, icon: Workflow },
       { name: 'PowerShell', icon: Terminal },
       { name: 'Python', icon: SiPython },
-      { name: 'HTML/JS', icon: AppWindow },
+      { name: 'Cloudflare Pages', icon: SiCloudflare },
       { name: 'GitHub Actions', icon: SiGithub },
-      { name: 'Git', icon: SiGit },
-    ],
-  },
-  {
-    label: { pt: 'Suporte & Ferramentas', en: 'Support & Tools' },
-    items: [
-      { name: 'Helpdesk', icon: LifeBuoy },
-      { name: 'cPanel/WHM', icon: SiCpanel },
+      { name: 'HTML/JS', icon: AppWindow },
       { name: 'GParted', icon: HardDrive },
       { name: 'FlashFab', icon: Plug },
       { name: 'VS Code', icon: Terminal },
@@ -238,7 +233,7 @@ export const JOBS: Job[] = [
       pt: 'Técnico de Gestão de Redes e Sistemas Informáticos',
       en: 'Computer and Network Management Technician',
     },
-    company: 'Torre Confecções, S.A.',
+    company: 'Torre Confecções, SA',
     location: 'Belmonte, Portugal',
     description: {
       pt: 'Responsável pela infraestrutura de rede, administração de sistemas e monitorização no departamento de TI.',
@@ -334,80 +329,60 @@ export const JOBS: Job[] = [
 export const CERTIFICATIONS: Certification[] = [
   {
     name: {
-      pt: 'Monitorização de Redes com LibreNMS',
-      en: 'Network Monitoring with LibreNMS',
+      pt: 'cPanel & WHM System Administrator I & II / Professional',
+      en: 'cPanel & WHM System Administrator I & II / Professional',
     },
-    issuer: 'LibreNMS',
-    area: 'networks',
-  },
-  {
-    name: {
-      pt: 'Firewall & Segurança de Rede (WatchGuard)',
-      en: 'Firewall & Network Security (WatchGuard)',
-    },
-    issuer: 'WatchGuard',
-    area: 'security',
-  },
-  {
-    name: {
-      pt: 'Administração de Active Directory e Windows Server',
-      en: 'Active Directory & Windows Server Administration',
-    },
-    issuer: 'Microsoft',
-    area: 'microsoft',
-  },
-  {
-    name: 'cPanel & WHM System Administrator',
     issuer: 'cPanel',
     area: 'systems',
   },
+  { name: 'Linux Essentials', issuer: 'Cisco Networking Academy', area: 'systems' },
   {
     name: {
-      pt: 'Automação com PowerShell e Python',
-      en: 'Automation with PowerShell and Python',
+      pt: 'FortiGate / Enterprise Firewall / FortiManager Administrator',
+      en: 'FortiGate / Enterprise Firewall / FortiManager Administrator',
     },
-    issuer: 'Self-taught',
-    area: 'systems',
-  },
-  {
-    name: {
-      pt: 'Configuração de VPNs (Tailscale / ZeroTier)',
-      en: 'VPN Configuration (Tailscale / ZeroTier)',
-    },
-    issuer: 'Self-taught',
+    issuer: 'Fortinet',
     area: 'security',
   },
   {
     name: {
-      pt: 'Monitorização SNMP em Equipamentos de Rede',
-      en: 'SNMP Monitoring on Network Equipment',
+      pt: 'Trilha de Analista de Cibersegurança Júnior',
+      en: 'Junior Cybersecurity Analyst Track',
     },
-    issuer: 'Self-taught',
-    area: 'networks',
+    issuer: 'Cisco NetAcad',
+    area: 'security',
   },
   {
     name: {
-      pt: 'Administração de Sistemas Linux (CLI)',
-      en: 'Linux System Administration (CLI)',
+      pt: 'Curso Completo de Administração de Windows Server',
+      en: 'A Complete Course on Windows Server Administration',
     },
-    issuer: 'Self-taught',
+    issuer: 'Packt',
     area: 'systems',
   },
   {
     name: {
-      pt: 'Virtualização com Proxmox VE',
-    en: 'Proxmox VE Virtualization',
+      pt: 'Certificado Profissional Google IT Support',
+      en: 'Google IT Support Professional Certificate',
     },
-    issuer: 'Self-taught',
+    issuer: 'Google (Coursera)',
     area: 'systems',
   },
   {
     name: {
-      pt: 'CI/CD com Jenkins',
-      en: 'CI/CD with Jenkins',
+      pt: 'Microsoft IT Support Specialist',
+      en: 'Microsoft IT Support Specialist',
     },
-    issuer: 'Self-taught',
-    area: 'systems',
+    issuer: 'Microsoft (Coursera)',
+    area: 'microsoft',
+  },
+  {
+    name: {
+      pt: 'Formação Avançada em Cibersegurança',
+      en: 'Advanced Cybersecurity Training',
+    },
+    issuer: 'C-ACADEMY',
+    area: 'security',
   },
 ];
 
