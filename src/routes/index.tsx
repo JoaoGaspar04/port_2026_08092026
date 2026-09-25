@@ -31,6 +31,7 @@ function Portfolio() {
   const { lang } = useLanguage();
   const [active, setActive] = useState('about');
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [progress, setProgress] = useState(0);
   const [cvOpen, setCvOpen] = useState(false);
 
   useEffect(() => {
@@ -40,19 +41,36 @@ function Portfolio() {
       const obs = new IntersectionObserver(([entry]) => { if (entry?.isIntersecting) setActive(id); }, { rootMargin: '-30% 0px -60% 0px' });
       obs.observe(el); observers.push(obs);
     });
-    return () => observers.forEach(o => o.disconnect());
+
+    const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    }), { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+    document.querySelectorAll('.portfolio-main .portfolio-section').forEach(el => reveal.observe(el));
+    observers.push(reveal);
+
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        setProgress(max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0);
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { observers.forEach(o => o.disconnect()); window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
   }, []);
 
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  const spotlightStyle = { backgroundImage: `radial-gradient(600px circle at ${mouse.x}px ${mouse.y}px, rgba(34,211,238,0.08), transparent 80%)` };
+  const spotlightStyle = { '--mx': `${mouse.x}px`, '--my': `${mouse.y}px`, backgroundImage: `radial-gradient(560px circle at ${mouse.x}px ${mouse.y}px, rgba(34,211,238,0.085), transparent 78%)` } as React.CSSProperties;
 
-  return <div onMouseMove={e => setMouse({ x: e.clientX, y: e.clientY })} className="portfolio-shell relative min-h-screen bg-background">
+  return <div onMouseMove={e => setMouse({ x: e.clientX, y: e.clientY })} className="portfolio-shell relative min-h-screen bg-background" style={{ '--scroll-progress': `${progress}%` } as React.CSSProperties}>
+    <div className="portfolio-progress" aria-hidden="true"><span /></div>
+    <div className="portfolio-cursor" aria-hidden="true" style={{ left: mouse.x, top: mouse.y }} />
     <div className="pointer-events-none fixed inset-0 z-30" style={spotlightStyle} />
 
-    {/* The 3D hero is intentionally full-width and comes first. */}
     <Hero3D />
 
-    {/* Only after the hero do we enter the split portfolio: sticky left rail + scrolling right content. */}
     <div className="portfolio-body max-w-[1600px] mx-auto px-6 md:px-10 xl:px-16">
       <div className="lg:grid lg:grid-cols-[minmax(300px,38vw)_minmax(0,1fr)] lg:gap-16 xl:gap-24 lg:items-start">
         <aside className="portfolio-rail lg:sticky lg:top-0 lg:h-screen lg:w-full lg:py-16 py-16 lg:flex lg:flex-col lg:justify-between">
