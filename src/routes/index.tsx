@@ -1,6 +1,6 @@
 import '@/portfolio-2026.css';
 import { createFileRoute } from '@tanstack/react-router';
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { ArrowUp, Download } from 'lucide-react';
 import { About } from '@/components/About';
 import { Experience } from '@/components/Experience';
@@ -35,7 +35,7 @@ function Portfolio() {
   const active = useSectionTracking(SECTION_IDS);
   const progress = useScrollProgress();
   const mouse = usePointerPosition();
-  const [cvOpen, setCvOpen] = React.useState(false);
+  const [cvOpen, setCvOpen] = useState(false);
   useRevealSections();
 
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
