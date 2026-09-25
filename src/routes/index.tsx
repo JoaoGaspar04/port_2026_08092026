@@ -1,5 +1,6 @@
 import '@/portfolio-2026.css';
 import '@/portfolio-2026-runtime.css';
+import '@/portfolio-responsive-2026.css';
 import { createFileRoute } from '@tanstack/react-router';
 import { useState, type CSSProperties } from 'react';
 import { ArrowUp, Download } from 'lucide-react';
@@ -52,6 +53,11 @@ function Portfolio() {
     <div className="pointer-events-none fixed inset-0 z-30" style={spotlightStyle} />
     <Hero3D />
     <div className="portfolio-body mx-auto max-w-[1600px] px-6 md:px-10 xl:px-16">
+      <nav className="portfolio-mobile-nav lg:hidden" aria-label="Portfolio sections">
+        <div className="portfolio-mobile-nav-track">
+          {NAV.map(({ id, label }) => <button key={id} type="button" onClick={() => scrollTo(id)} aria-current={active === id ? 'page' : undefined} data-active={active === id}>{t(label, lang)}</button>)}
+        </div>
+      </nav>
       <div className="lg:grid lg:grid-cols-[minmax(300px,38vw)_minmax(0,1fr)] lg:items-start lg:gap-16 xl:gap-24">
         <aside className="portfolio-rail py-16 lg:sticky lg:top-0 lg:h-screen lg:w-full lg:py-16">
           <div className="portfolio-rail-inner lg:flex lg:h-full lg:flex-col lg:justify-between">
