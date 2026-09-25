@@ -15,7 +15,6 @@ export function useReducedMotion() {
 export function useScrollProgress() {
   const [progress, setProgress] = useState(0);
   const frame = useRef<number | null>(null);
-
   useEffect(() => {
     const update = () => {
       if (frame.current !== null) return;
@@ -35,6 +34,28 @@ export function useScrollProgress() {
     };
   }, []);
   return progress;
+}
+
+export function usePointerPosition() {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const frame = useRef<number | null>(null);
+  const next = useRef(position);
+  useEffect(() => {
+    const onPointerMove = (event: PointerEvent) => {
+      next.current = { x: event.clientX, y: event.clientY };
+      if (frame.current !== null) return;
+      frame.current = requestAnimationFrame(() => {
+        frame.current = null;
+        setPosition(next.current);
+      });
+    };
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    return () => {
+      window.removeEventListener('pointermove', onPointerMove);
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
+    };
+  }, []);
+  return position;
 }
 
 export function useSectionTracking(ids: string[]) {
