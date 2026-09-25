@@ -1,7 +1,7 @@
 import '@/portfolio-2026.css';
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
-import { Download } from 'lucide-react';
+import { ArrowUp, Download } from 'lucide-react';
 import { About } from '@/components/About';
 import { Experience } from '@/components/Experience';
 import { Skills } from '@/components/Skills';
@@ -41,13 +41,11 @@ function Portfolio() {
       const obs = new IntersectionObserver(([entry]) => { if (entry?.isIntersecting) setActive(id); }, { rootMargin: '-30% 0px -60% 0px' });
       obs.observe(el); observers.push(obs);
     });
-
     const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('is-visible');
     }), { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
     document.querySelectorAll('.portfolio-main .portfolio-section').forEach(el => reveal.observe(el));
     observers.push(reveal);
-
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -68,9 +66,7 @@ function Portfolio() {
     <div className="portfolio-progress" aria-hidden="true"><span /></div>
     <div className="portfolio-cursor" aria-hidden="true" style={{ left: mouse.x, top: mouse.y }} />
     <div className="pointer-events-none fixed inset-0 z-30" style={spotlightStyle} />
-
     <Hero3D />
-
     <div className="portfolio-body max-w-[1600px] mx-auto px-6 md:px-10 xl:px-16">
       <div className="lg:grid lg:grid-cols-[minmax(300px,38vw)_minmax(0,1fr)] lg:gap-16 xl:gap-24 lg:items-start">
         <aside className="portfolio-rail lg:sticky lg:top-0 lg:h-screen lg:w-full lg:py-16 py-16 lg:flex lg:flex-col lg:justify-between">
@@ -81,7 +77,7 @@ function Portfolio() {
             <button onClick={() => setCvOpen(true)} className="portfolio-cv mt-10 inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors group"><Download size={13} className="group-hover:-translate-y-0.5 group-hover:text-primary transition-all duration-200" />{t(UI.downloadCV, lang)}</button>
           </div><SocialLinks />
         </aside>
-        <main className="portfolio-main min-w-0 lg:py-24 pb-24 space-y-20"><About /><Experience /><Skills /><Certifications /><footer className="portfolio-footer text-xs text-muted-foreground/50 pt-8 border-t border-border/20 leading-relaxed">{t(UI.builtBy, lang)} · {new Date().getFullYear()}</footer></main>
+        <main className="portfolio-main min-w-0 lg:py-24 pb-24 space-y-20"><About /><Experience /><Skills /><Certifications /><footer className="portfolio-footer" aria-label="Portfolio footer"><div className="footer-grid" aria-hidden="true" /><div className="footer-topline"><span>END OF TRANSMISSION</span><i /><span>JG / IT-INFRASTRUCTURE</span></div><div className="footer-main"><div><div className="footer-mark"><span>JG</span><em>2026</em></div><p>{t(UI.builtBy, lang)} · {new Date().getFullYear()}</p></div><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="footer-backtop" aria-label="Voltar ao topo"><ArrowUp size={15} /><span>BACK TO TOP</span></button></div><div className="footer-scan" aria-hidden="true"><span /><span /><span /><span /></div></footer></main>
       </div>
     </div>
     <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />
