@@ -1,0 +1,329 @@
+/* 2026 responsive layer: content-first, touch-first, recruiter-friendly */
+
+.portfolio-shell {
+  --rail-width: clamp(290px, 31vw, 470px);
+}
+
+/* Keep motion impressive without making the content harder to scan. */
+.portfolio-main,
+.portfolio-rail {
+  min-width: 0;
+}
+
+.portfolio-main h2,
+.portfolio-main h3 {
+  text-wrap: balance;
+}
+
+.portfolio-main p,
+.portfolio-main li {
+  text-wrap: pretty;
+}
+
+/* Keyboard users get the same visual language as pointer users. */
+.portfolio-shell :where(a, button):focus-visible {
+  outline: 2px solid #67e8f9;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 5px rgba(103,232,249,.08), 0 0 28px rgba(34,211,238,.12);
+}
+
+/* Never show the custom cursor on devices where it cannot be useful. */
+@media (hover: none), (pointer: coarse) {
+  .portfolio-cursor { display: none !important; }
+  .portfolio-shell .experience-card:hover .experience-content,
+  .portfolio-shell .skill-cluster:hover,
+  .portfolio-shell .cert-card:hover,
+  .portfolio-shell .about-copy:hover { transform: none; }
+}
+
+/* Desktop: the left rail belongs to the post-hero portfolio only. */
+@media (min-width: 1024px) {
+  .portfolio-body > div {
+    grid-template-columns: var(--rail-width) minmax(0, 1fr);
+  }
+
+  .portfolio-rail {
+    top: 0;
+    height: 100vh;
+    max-height: 100vh;
+    align-self: start;
+  }
+
+  .portfolio-rail-inner {
+    min-height: min(760px, calc(100vh - 7rem));
+    max-height: calc(100vh - 4rem);
+  }
+
+  .portfolio-main {
+    padding-left: clamp(0rem, 1vw, 1rem);
+  }
+
+  .portfolio-main > .portfolio-section {
+    scroll-margin-top: 4rem;
+  }
+}
+
+/* Tablet: preserve the visual system but prioritize readable width. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .portfolio-body {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .portfolio-rail {
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(103,232,249,.10);
+  }
+
+  .portfolio-rail-inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .portfolio-nav { margin-top: 1.5rem; }
+  .portfolio-nav ul { display: flex; flex-wrap: wrap; gap: .65rem 1.25rem; }
+  .portfolio-nav li { margin: 0 !important; }
+  .portfolio-nav li button { gap: .55rem; }
+  .portfolio-nav li button span:first-child { width: 1.5rem !important; }
+  .portfolio-cv { margin-top: 1.25rem; }
+
+  .portfolio-main {
+    padding-top: 3rem;
+  }
+
+  .cert-wall { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* Hero: tablet gets a deliberate stacked composition instead of a squeezed desktop. */
+@media (min-width: 768px) and (max-width: 1100px) {
+  .hero3d > .relative.z-10 {
+    grid-template-columns: 1fr;
+    min-height: 900px;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero3d-stage {
+    min-height: 500px;
+  }
+}
+
+/* Phone: one-handed navigation, readable type, zero horizontal fighting. */
+@media (max-width: 767px) {
+  .portfolio-progress { height: 3px; }
+
+  .portfolio-shell:before {
+    background-size: 52px 52px;
+    opacity: .35;
+  }
+
+  .portfolio-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .portfolio-rail {
+    padding-top: 2.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(103,232,249,.10);
+  }
+
+  .portfolio-rail:before,
+  .portfolio-rail:after {
+    display: none;
+  }
+
+  .portfolio-rail-inner {
+    min-height: auto;
+  }
+
+  .portfolio-avatar {
+    width: 78px !important;
+    height: 78px !important;
+  }
+
+  .portfolio-rail h1 {
+    font-size: clamp(1.8rem, 8vw, 2.45rem);
+  }
+
+  .portfolio-rail h2 {
+    max-width: 30rem;
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .portfolio-nav { display: none !important; }
+
+  .portfolio-cv {
+    margin-top: 1rem;
+    min-height: 42px;
+  }
+
+  .portfolio-main {
+    padding-top: 1.5rem;
+  }
+
+  .portfolio-main > .portfolio-section {
+    scroll-margin-top: 4.5rem;
+    padding: 2rem 0;
+  }
+
+  .about-copy {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+
+  .about-copy p {
+    font-size: .86rem;
+    line-height: 1.78;
+  }
+
+  .experience-stack {
+    gap: .8rem;
+  }
+
+  .experience-stack:before {
+    left: 17px;
+  }
+
+  .experience-card {
+    grid-template-columns: 36px minmax(0,1fr);
+    gap: .65rem;
+  }
+
+  .experience-marker span {
+    width: 34px;
+    height: 34px;
+    font-size: 7px;
+  }
+
+  .experience-content {
+    padding: 1rem;
+    border-radius: 13px;
+  }
+
+  .experience-head h3 {
+    font-size: .82rem;
+  }
+
+  .experience-description {
+    font-size: .73rem;
+    line-height: 1.7;
+  }
+
+  .experience-achievements li {
+    font-size: .7rem;
+  }
+
+  .skill-cluster {
+    padding: 1rem;
+    border-radius: 13px;
+  }
+
+  .skill-cluster li {
+    min-height: 38px;
+    padding: .48rem .58rem;
+  }
+
+  .cert-wall {
+    grid-template-columns: 1fr;
+    gap: .7rem;
+  }
+
+  .cert-card {
+    min-height: 0;
+    grid-template-columns: 30px minmax(0,1fr);
+    padding: .9rem;
+  }
+
+  .cert-name {
+    font-size: .76rem;
+  }
+
+  .portfolio-footer {
+    min-height: 220px !important;
+  }
+}
+
+/* Small phones: avoid oversized 3D hero and preserve the CTA hierarchy. */
+@media (max-width: 560px) {
+  .hero3d {
+    min-height: 760px;
+  }
+
+  .hero3d > .relative.z-10 {
+    min-height: 760px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 6rem 1rem 1.5rem;
+  }
+
+  .hero3d > .relative.z-10 > div:first-child {
+    flex: none;
+  }
+
+  .hero3d h1 {
+    font-size: clamp(3.7rem, 18vw, 5.4rem);
+    line-height: .82;
+  }
+
+  .hero3d p {
+    font-size: .98rem;
+    line-height: 1.65;
+  }
+
+  .hero3d-button {
+    min-height: 44px;
+  }
+
+  .hero3d-stage {
+    width: 100%;
+    min-height: 340px;
+    margin-top: .5rem;
+  }
+
+  .hero3d-world {
+    width: 100%;
+    height: 340px;
+    min-height: 340px;
+  }
+
+  .hero3d-console {
+    bottom: -1%;
+  }
+
+  .hero3d-grid { background-size: 36px 36px; }
+}
+
+/* Respect OS motion preferences globally, not only in React. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .portfolio-shell *,
+  .portfolio-shell *::before,
+  .portfolio-shell *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .portfolio-section {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Avoid rendering expensive decorative effects while they are outside the viewport. */
+@media (min-width: 768px) {
+  .portfolio-main > .portfolio-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 650px;
+  }
+}
