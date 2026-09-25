@@ -42,6 +42,7 @@ export function usePointerPosition() {
   const next = useRef(position);
   useEffect(() => {
     const onPointerMove = (event: PointerEvent) => {
+      if (event.pointerType !== 'mouse') return;
       next.current = { x: event.clientX, y: event.clientY };
       if (frame.current !== null) return;
       frame.current = requestAnimationFrame(() => {
