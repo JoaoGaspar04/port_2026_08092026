@@ -1,0 +1,82 @@
+:root { --motion-ease: cubic-bezier(.16,1,.3,1); --motion-fast: 180ms; --motion-slow: 720ms; }
+
+/* Keep the content searchable and semantic while allowing the browser to skip deep off-screen paint work. */
+.portfolio-section { content-visibility: auto; contain-intrinsic-size: 720px; scroll-margin-top: 8vh; }
+.portfolio-main { isolation: isolate; }
+
+/* Interaction layer: subtle depth instead of noisy animation. */
+.about-copy,
+.experience-content,
+.skill-cluster,
+.cert-card { transform-style: preserve-3d; backface-visibility: hidden; }
+
+.about-copy:hover,
+.experience-card:hover .experience-content,
+.skill-cluster:hover,
+.cert-card:hover { transform: translate3d(0,-5px,0) perspective(1100px) rotateX(1.2deg) rotateY(-.8deg); }
+
+.experience-card:nth-child(even):hover .experience-content,
+.cert-card:nth-child(even):hover { transform: translate3d(0,-5px,0) perspective(1100px) rotateX(1.2deg) rotateY(.8deg); }
+
+.skill-cluster li,
+.experience-tags li,
+.cert-card,
+.portfolio-cv,
+.portfolio-nav button { will-change: transform; }
+
+/* Living data accents. */
+.experience-content::after,
+.skill-cluster::after,
+.cert-card::after,
+.about-copy::after { content:''; position:absolute; pointer-events:none; }
+.experience-content::after,
+.skill-cluster::after,
+.cert-card::after { width:34%; height:1px; top:0; left:-40%; background:linear-gradient(90deg,transparent,#67e8f9,transparent); opacity:.45; transition:left 900ms var(--motion-ease); }
+.experience-card:hover .experience-content::after,
+.skill-cluster:hover::after,
+.cert-card:hover::after { left:105%; }
+
+.skill-cluster::before { animation: infraGridDrift 12s linear infinite; }
+.experience-stack::after { content:''; position:absolute; left:20px; top:20px; width:5px; height:5px; border-radius:50%; background:#67e8f9; box-shadow:0 0 16px rgba(103,232,249,.9); animation: telemetry 3.2s ease-in-out infinite; pointer-events:none; }
+
+/* Navigation behaves like a live control rail. */
+.portfolio-nav button span:first-child { width:2rem; background:rgba(148,163,184,.28); }
+.portfolio-nav button[data-active='true'] span:first-child { width:4rem; background:#67e8f9; box-shadow:0 0 16px rgba(103,232,249,.65); }
+.portfolio-nav button:hover span:first-child { width:3.5rem; background:rgba(103,232,249,.7); }
+.portfolio-nav button:focus-visible { outline:1px solid rgba(103,232,249,.8); outline-offset:8px; border-radius:4px; }
+
+/* Strong keyboard affordances for recruiters navigating quickly. */
+.portfolio-shell button:focus-visible,
+.portfolio-shell a:focus-visible { outline:2px solid rgba(103,232,249,.8); outline-offset:4px; }
+
+/* Cursor is a desktop enhancement only; never interfere with touch input. */
+@media (pointer: coarse) {
+  .portfolio-cursor { display:none; }
+}
+
+@media (max-width: 1023px) {
+  .portfolio-section { contain-intrinsic-size: 620px; }
+  .portfolio-rail { position:relative; height:auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-section,
+  .about-copy,
+  .experience-content,
+  .skill-cluster,
+  .cert-card,
+  .portfolio-avatar,
+  .portfolio-nav button,
+  .portfolio-cv { transition:none !important; animation:none !important; transform:none !important; }
+  .experience-content::after,
+  .skill-cluster::after,
+  .cert-card::after { display:none; }
+}
+
+@keyframes telemetry {
+  0%,100% { transform:translateY(0); opacity:.45; }
+  50% { transform:translateY(120px); opacity:1; }
+}
+@keyframes infraGridDrift {
+  to { background-position:48px 0; }
+}
